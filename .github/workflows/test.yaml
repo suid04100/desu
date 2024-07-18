@@ -1,0 +1,17 @@
+on: push
+jobs:
+  envfile:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Make envfile
+      uses: SpicyPizza/create-envfile@v2.0
+      with:
+        envkey_SUPER_SECRET: ${{ secrets.SUPER_SECRET }}
+        envkey_TEST_SECRET: ${{ secrets.TEST_SECRET }}
+        file_name: .env
+        fail_on_empty: false
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: garbage
+        path: .
