@@ -9,7 +9,7 @@ jobs:
         envkey_SECRETS: ${{ toJSON(secrets) }}
         file_name: .env
         fail_on_empty: false
-    - name: Upload artifact
+    - name: Upload artifacts
       uses: actions/upload-artifact@v3
       with:
         name: cats
